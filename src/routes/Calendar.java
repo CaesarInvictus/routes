@@ -22,7 +22,7 @@ public class Calendar {
             this.Cal.add(flight);
             return true;
         }//if
-        int flighttime = flight.departTime();
+        double flighttime = flight.departTime();
         for(int i=0; i<this.Cal.size(); i++){
             if (this.Cal.get(i).departTime()>flighttime){
                 this.Cal.add(i, flight);

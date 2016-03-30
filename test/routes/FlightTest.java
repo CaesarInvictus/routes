@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
  * @author shecharya
  */
 public class FlightTest {
+        private static final double EPSILON = 1E-8;
     
     public FlightTest() {
     }
@@ -28,9 +29,9 @@ public class FlightTest {
     public void testDepartTime() {
         System.out.println("departTime");
         Flight instance = new Flight("LAX", "JFK", "12", "2");
-        int expResult = 12;
-        int result = instance.departTime();
-        assertEquals(expResult, result);
+        double expResult = 12;
+        double result = instance.departTime();
+        assertEquals(expResult, result, EPSILON);
     }
 
     /**
@@ -40,9 +41,9 @@ public class FlightTest {
     public void testFlightTime() {
         System.out.println("flightTime");
         Flight instance = new Flight("LAX", "JFK", "12", "2");
-        int expResult = 2;
-        int result = instance.flightTime();
-        assertEquals(expResult, result);
+        double expResult = 2;
+        double result = instance.flightTime();
+        assertEquals(expResult, result, EPSILON);
     }
 
     /**

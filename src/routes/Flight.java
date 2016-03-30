@@ -22,11 +22,11 @@ public class Flight {
         this.flight.add(flightTime);
         
     }//Flight()
-    public int departTime(){
-        return Integer.parseInt(this.flight.get(2));
+    public double departTime(){
+        return Double.parseDouble(this.flight.get(2));
     }//absTime
-    public int flightTime(){
-        return Integer.parseInt(this.flight.get(3));
+    public double flightTime(){
+        return Double.parseDouble(this.flight.get(3));
     }//flightTime()
     public boolean makeConnection(Flight f){
         return this.departTime()+this.flightTime()<f.departTime();
