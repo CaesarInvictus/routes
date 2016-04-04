@@ -47,5 +47,10 @@ public class Calendar {
        
         
     }//add()
-    
+    public Flight getFlight(int i){
+        return Cal.get(i);
+    }
+    public int size(){
+        return Cal.size();
+    }
 }

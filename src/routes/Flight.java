@@ -24,23 +24,32 @@ import java.util.List;
  * @author shecharya
  */
 public class Flight {
-    private List<String> flight = new ArrayList<String>();
-    public Flight(String arrival, String departure, String departTime, String flightTime){
-        this.flight=flight;
-        this.flight.add(arrival);
-        this.flight.add(departure);
-        this.flight.add(departTime);
-        this.flight.add(flightTime);
+    private String fromAirport;
+    private String toAirport;
+    private double departTime;
+    private double flightTime;
+    public Flight(String fromAirport, String toAirport, double departTime, double flightTime){
+        this.fromAirport = fromAirport;
+        this.toAirport = toAirport;
+        this.departTime = departTime;
+        this.flightTime = flightTime;
         
     }//Flight()
     public double departTime(){
-        return Double.parseDouble(this.flight.get(2));
+        return this.departTime;
+
     }//absTime
     public double flightTime(){
-        return Double.parseDouble(this.flight.get(3));
+        return this.flightTime;
     }//flightTime()
+    public String fromAirport(){
+        return this.fromAirport;
+    }
+    public String toAirport(){
+        return this.toAirport;
+    }
     public boolean makeConnection(Flight f){
-        return this.departTime()+this.flightTime()<f.departTime();
+        return this.departTime+this.flightTime<f.departTime;
     }//makeConnection
     
     

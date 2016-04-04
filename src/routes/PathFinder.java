@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package routes;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /******************************************************************************
  *  Compilation:  javac PathFinder.java
  *  Execution:    java Pathfinder input.txt delimiter source
@@ -90,12 +94,47 @@ public class PathFinder {
         Graph G = GraphGenerator.read(in, delimiter);
         String s = args[2];
         PathFinder pf = new PathFinder(G, s);
+        Scrape scrape = new Scrape();
+        Calendar cal = scrape.screwThis();
+        double time = 0;
+        String n = "";
+        List<String> ms = new ArrayList<String>();
+
         while (!StdIn.isEmpty()) {
             String t = StdIn.readLine();
-            for (String v : pf.pathTo(t)) {
-                StdOut.println("   " + v);
+            for (String m : pf.pathTo(t)){
+                ms.add(m);
+
             }
-            StdOut.println("distance " + pf.distanceTo(t));
+            for (String m : ms){
+                StdOut.println("   " + m);
+                int i = 0;
+                while (i < cal.size()){
+                if ((cal.getFlight(i).fromAirport().equals(n)) && (cal.getFlight(i).toAirport().equals(m))){
+                    time = time + cal.getFlight(i).flightTime();
+                    i = cal.size();
+                }
+                i++;
+                
+            }
+                n = m;
+            }
+            
+//            for (String v : pf.pathTo(t)) {
+//                StdOut.println("   " + v);
+//                int i = 0;
+//                while (i < cal.size()){
+//
+//                if (cal.getFlight(i).fromAirport().equals(v)){
+//                    time = time + cal.getFlight(i).flightTime();
+//                    i = cal.size();
+//                }
+//                i++;
+//            }
+//            }
+            StdOut.println("Layovers: " + pf.distanceTo(t));
+            StdOut.println("Flight Hours: " + time);
+            ms.clear();
         }
     }
 

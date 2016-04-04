@@ -23,8 +23,8 @@ package routes;
 public class TextToCalendar {
     private String arrival;
     private String departure;
-    private String departTime;
-    private String flightTime;
+    private int departTime;
+    private int flightTime;
     private Flight thisFlight;
     private Calendar Cal;
 
@@ -38,8 +38,8 @@ public class TextToCalendar {
         while (inputStream.hasNextLine()){
             arrival = inputStream.readString();
             departure = inputStream.readString();
-            departTime = inputStream.readString();
-            flightTime = inputStream.readString();
+            departTime = inputStream.readInt();
+            flightTime = inputStream.readInt();
             thisFlight = new Flight(arrival, departure, departTime, flightTime);
             this.Cal.insert(thisFlight);
             
