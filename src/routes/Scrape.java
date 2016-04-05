@@ -27,7 +27,7 @@ import java.util.Map;
 
 
 /**
- * Scrapes http://flightaware.com/ for a list of air flights
+ * Scrapes <a href="http://flightaware.com/">Flightaware</a> for a list of air flights
  * @author shecharya
  */
 public class Scrape {
@@ -53,7 +53,7 @@ public class Scrape {
         return "http://flightaware.com/live/airport/" + airport + "/scheduled?;offset=" + offset + ";order=filed_departuretime;sort=ASC";
     } //urlGen
     /**
-     * Creates a map of time zones to their UTC offset. The airport reports times by timezone. We need to correct the time or our connection data and flight times will be bad.
+     * Creates a map of time zones to their <a href="https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations">UTC offset</a>. The airport reports times by timezone. We need to correct the time or our connection data and flight times will be bad.
      * @return The map of time zones to UTC.
      */
     public Map genMap(){
@@ -256,7 +256,7 @@ public class Scrape {
         
     }//timeToInt
     /**
-     * Scrapes the website for a set of flights and inserts them into a Calendar. Does not currently work.
+     * Scrapes the website for a set of flights and inserts them into a {@link Calendar}. Does not currently work.
      * @return The Calendar we generate.
      */
     public Calendar getCal(){
@@ -289,7 +289,7 @@ public class Scrape {
         return cal;
     }//getCal
     /**
-     * Placeholder which creates a Calendar based on artificial data
+     * Placeholder which creates a {@link Calendar} based on artificial data
      * @return The calendar of fake data
      */
     public Calendar fakeGetCal(){

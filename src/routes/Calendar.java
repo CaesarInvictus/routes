@@ -22,7 +22,7 @@ import java.util.ArrayList;
  * @author shecharya
  */
 /**
- * Creates a sorted list of flights. Flights are sorted by departure time.
+ * Creates a sorted list of {@link Flight}s. Flights are sorted by departure time.
  * 
  * @author shecharya
  */
@@ -35,7 +35,7 @@ public class Calendar {
 }//Calendar
 /**
 *
-*Inserts a flight into the Calendar in order of departure time
+*Inserts a {@link Flight} into the Calendar in order of departure time
 * @param flight the flight to insert
 * @return true if succeeds
 * 
