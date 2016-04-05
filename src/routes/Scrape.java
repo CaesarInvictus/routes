@@ -27,7 +27,7 @@ import java.util.Map;
 
 
 /**
- *
+ * Scrapes http://flightaware.com/ for a list of air flights
  * @author shecharya
  */
 public class Scrape {
@@ -44,9 +44,18 @@ public class Scrape {
         this.flag = flag;
         
     }//Scrape()
+    /**
+     * Creates the URL we will attempt to grab. We need to be able to change the airport and iterate through pages.
+     * @param offset Multiple of 20. The site returns tables of 20 rows so we need several page grabs to get all flights for an airport.
+     * @return The URL we have generated
+     */
     public String urlGen(int offset){
         return "http://flightaware.com/live/airport/" + airport + "/scheduled?;offset=" + offset + ";order=filed_departuretime;sort=ASC";
     } //urlGen
+    /**
+     * Creates a map of time zones to their UTC offset. The airport reports times by timezone. We need to correct the time or our connection data and flight times will be bad.
+     * @return The map of time zones to UTC.
+     */
     public Map genMap(){
         this.map.put("UTC", 0.0);
         this.map.put("ACDT", 10.5);
@@ -229,6 +238,11 @@ public class Scrape {
         return this.map;
         
     }//genMap THERE ARE 24 POSSIBLE TIME ZONES WHY DO WE NEED 180 NAMES
+    /**
+     * Formats the time we grab from a website into a usable double.
+     * @param time The string we get from the website.
+     * @return The double-converted form of that time.
+     */
     public double timeToDouble(String time){       
         String[] parts = time.split(" ");
         String[] timeparts = parts[1].split(":");
@@ -241,6 +255,10 @@ public class Scrape {
         return theTime + (this.map.get(parts[2]));
         
     }//timeToInt
+    /**
+     * Scrapes the website for a set of flights and inserts them into a Calendar. Does not currently work.
+     * @return The Calendar we generate.
+     */
     public Calendar getCal(){
         int offset = 0;
         this.flag = 0;
@@ -270,7 +288,11 @@ public class Scrape {
         }
         return cal;
     }//getCal
-    public Calendar screwThis(){
+    /**
+     * Placeholder which creates a Calendar based on artificial data
+     * @return The calendar of fake data
+     */
+    public Calendar fakeGetCal(){
         Calendar cal = new Calendar();
         List<Flight> flights = new ArrayList<Flight>();
         flights.add(new Flight("JFK", "MCO", 950, 2));
@@ -297,10 +319,14 @@ public class Scrape {
             cal.insert(f);
         }
             return cal;   
-    }//screwThis
+    }//fakeGetCal
+    /**
+     * Test program in main
+     * @param args 
+     */
     public static void main(String[] args) {
         Scrape scrape = new Scrape();
-        Calendar cal = scrape.screwThis();
+        Calendar cal = scrape.fakeGetCal();
         System.out.println(cal);
         
     }

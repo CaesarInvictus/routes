@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Creates a new Flight Object with starting and ending airports and departure and flight times. Can also check if one flight can "make a connection" with another flight.
  * @author shecharya
  */
 public class Flight {
@@ -28,6 +28,13 @@ public class Flight {
     private String toAirport;
     private double departTime;
     private double flightTime;
+    /**
+     * Creates the flight object.
+     * @param fromAirport Set flight source airport
+     * @param toAirport Set flight destination airport
+     * @param departTime Set flight departure time
+     * @param flightTime Set flight duration
+     */
     public Flight(String fromAirport, String toAirport, double departTime, double flightTime){
         this.fromAirport = fromAirport;
         this.toAirport = toAirport;
@@ -35,19 +42,40 @@ public class Flight {
         this.flightTime = flightTime;
         
     }//Flight()
+    /**
+     * Returns departure time.
+     * @return the departure time for this flight
+     */
     public double departTime(){
         return this.departTime;
 
     }//absTime
+    /**
+     * Returns flight duration
+     * @return The duration of this flight
+     */
     public double flightTime(){
         return this.flightTime;
     }//flightTime()
+    /**
+     * Returns the source airport
+     * @return The airport the flight departs from
+     */
     public String fromAirport(){
         return this.fromAirport;
     }
+    /**
+     * Returns the destination airport
+     * @return The airport the flight arrives at
+     */
     public String toAirport(){
         return this.toAirport;
     }
+    /**
+     * Compares two flights and sees if a connection can be made
+     * @param f The flight to compare this to
+     * @return True if a connection can be made, otherwise false.
+     */
     public boolean makeConnection(Flight f){
         return this.departTime+this.flightTime<f.departTime;
     }//makeConnection

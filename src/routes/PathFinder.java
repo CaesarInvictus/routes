@@ -95,7 +95,7 @@ public class PathFinder {
         String s = args[2];
         PathFinder pf = new PathFinder(G, s);
         Scrape scrape = new Scrape();
-        Calendar cal = scrape.screwThis();
+        Calendar cal = scrape.fakeGetCal();
         double time = 0;
         String n = "";
         List<String> ms = new ArrayList<String>();

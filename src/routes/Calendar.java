@@ -22,6 +22,7 @@ import java.util.ArrayList;
  * @author shecharya
  */
 /**
+ * Creates a sorted list of flights. Flights are sorted by departure time.
  * 
  * @author shecharya
  */
@@ -68,8 +69,8 @@ public class Calendar {
         return Cal.get(i);
     }
     /**
-     * 
-     * @return The overall size of the calendar 
+     * Returns the size of the calendar
+     * @return The size of the list Cal 
      */
     public int size(){
         return Cal.size();
