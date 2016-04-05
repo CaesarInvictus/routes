@@ -133,7 +133,7 @@ public class PathFinder {
 //            }
 //            }
             StdOut.println("Layovers: " + pf.distanceTo(t));
-            StdOut.println("Flight Hours: " + time);
+            StdOut.println("Flight Duration: " + time + " hours");
             ms.clear();
         }
     }
