@@ -21,6 +21,10 @@ import java.util.ArrayList;
  *
  * @author shecharya
  */
+/**
+ * 
+ * @author shecharya
+ */
 public class Calendar {
     private List<Flight> Cal = new ArrayList<Flight>();
     
@@ -28,6 +32,13 @@ public class Calendar {
     this.Cal = Cal;
     
 }//Calendar
+/**
+*
+*Inserts a flight into the Calendar in order of departure time
+* @param flight the flight to insert
+* @return true if succeeds
+* 
+*/
     public boolean insert(Flight flight){
         if (this.Cal.isEmpty()){
             this.Cal.add(flight);
@@ -47,9 +58,19 @@ public class Calendar {
        
         
     }//add()
+    /**
+     * 
+     * Gets the flight at position i in the calendar
+     * @param i The position in the calendar to retrieve
+     * @return The flight in the calendar at position i
+     */
     public Flight getFlight(int i){
         return Cal.get(i);
     }
+    /**
+     * 
+     * @return The overall size of the calendar 
+     */
     public int size(){
         return Cal.size();
     }

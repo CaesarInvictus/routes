@@ -377,7 +377,7 @@ public final class In {
      * Reads the next token from this input stream, parses it as a <tt>byte</tt>,
      * and returns the <tt>byte</tt>.
      * <p>
-     * To read binary data, use {@link BinaryIn}.
+     * To read binary data, use link BinaryIn}.
      *
      * @return the next <tt>byte</tt> in this input stream
      */
